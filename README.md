@@ -21,7 +21,10 @@ public:
   T* get();
   T& operator*() const;
   T* operator->() const;
-  size_t use_count() const; // возвращает количество объектов shared_ptr, которые ссылаются на тот же управляемый объект
-  operator bool() const; // проверяет, указывает ли указатель на объект
+  // возвращает количество объектов shared_ptr, которые ссылаются на тот же управляемый объект
+  size_t use_count() const;
+  // проверяет, указывает ли указатель на объект
+  operator bool() const;
 };
+
 ```
