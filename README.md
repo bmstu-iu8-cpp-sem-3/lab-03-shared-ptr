@@ -21,7 +21,6 @@ public:
   auto operator*() const -> T&;
   auto operator->() const -> T*;
   
-  
   auto get() -> T*;
   void reset();
   void reset(T* ptr);
