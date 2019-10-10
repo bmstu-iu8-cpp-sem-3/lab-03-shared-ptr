@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Mihailus2000/lab_03_SharedPtr.svg?branch=master)](https://travis-ci.com/Mihailus2000/lab_03_SharedPtr)
+
 # Лабораторная работа №3
 
 ### Задание
