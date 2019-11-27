@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ARAOvsepyan/lab-03-shared-ptr.svg?branch=master)](https://travis-ci.com/ARAOvsepyan/lab-03-shared-ptr)
+
 # Лабораторная работа №3
 
 ### Задание
