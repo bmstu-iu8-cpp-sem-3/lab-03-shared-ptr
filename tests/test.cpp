@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include "SharedPtr.hpp"
 
 namespace {
     struct C {

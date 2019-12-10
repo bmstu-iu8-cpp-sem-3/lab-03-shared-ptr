@@ -1,0 +1,297 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/pc/Desktop/CLionProjects/lab-03-shared-ptr
+-- [hunter] Initializing Hunter workspace (9a3594a61227967fb92159339ba326701b287b19)
+-- [hunter]   https://github.com/cpp-pm/hunter/archive/v0.23.218.tar.gz
+-- [hunter]   -> /Users/pc/.hunter/_Base/Download/Hunter/0.23.218/9a3594a
+-- The C compiler identification is AppleClang 10.0.0.10001044
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- [hunter] Calculating Toolchain-SHA1
+-- [hunter] Calculating Config-SHA1
+-- [hunter] HUNTER_ROOT: /Users/pc/.hunter
+-- [hunter] [ Hunter-ID: 9a3594a | Toolchain-ID: b59e805 | Config-ID: c351cc1 ]
+-- [hunter] GTEST_ROOT: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Install (ver.: 1.8.0-hunter-p11)
+-- [hunter] Building GTest
+loading initial cache file /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/cache.cmake
+loading initial cache file /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/args.cmake
+-- The C compiler identification is AppleClang 10.0.0.10001044
+-- The CXX compiler identification is AppleClang 10.0.0.10001044
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc -- works
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ -- works
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Build
+Scanning dependencies of target GTest-Release
+[  6%] Creating directories for 'GTest-Release'
+[ 12%] Performing download step (download, verify and extract) for 'GTest-Release'
+-- Downloading...
+   dst='/Users/pc/.hunter/_Base/Download/GTest/1.8.0-hunter-p11/76c6aec/1.8.0-hunter-p11.tar.gz'
+   timeout='none'
+-- Using src='https://github.com/hunter-packages/googletest/archive/1.8.0-hunter-p11.tar.gz'
+-- verifying file...
+       file='/Users/pc/.hunter/_Base/Download/GTest/1.8.0-hunter-p11/76c6aec/1.8.0-hunter-p11.tar.gz'
+-- Downloading... done
+-- extracting...
+     src='/Users/pc/.hunter/_Base/Download/GTest/1.8.0-hunter-p11/76c6aec/1.8.0-hunter-p11.tar.gz'
+     dst='/Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Source'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[ 18%] No patch step for 'GTest-Release'
+[ 25%] No update step for 'GTest-Release'
+[ 31%] Performing configure step for 'GTest-Release'
+loading initial cache file /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/cache.cmake
+loading initial cache file /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/args.cmake
+-- The C compiler identification is AppleClang 10.0.0.10001044
+-- The CXX compiler identification is AppleClang 10.0.0.10001044
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc -- works
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ -- works
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PythonInterp: /usr/bin/python (found version "2.7.16") 
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Build/GTest-Release-prefix/src/GTest-Release-build
+[ 37%] Performing build step for 'GTest-Release'
+Scanning dependencies of target gtest
+Scanning dependencies of target gmock
+[  9%] Building CXX object googlemock/gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+Scanning dependencies of target gmock_main
+[ 18%] Building CXX object googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o
+[ 27%] Building CXX object googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o
+[ 36%] Building CXX object googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[ 45%] Building CXX object googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
+[ 54%] Building CXX object googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[ 63%] Linking CXX static library libgtest.a
+[ 72%] Linking CXX static library libgmock.a
+[ 72%] Built target gtest
+[ 72%] Built target gmock
+Scanning dependencies of target gtest_main
+[ 81%] Building CXX object googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[ 90%] Linking CXX static library libgmock_main.a
+[ 90%] Built target gmock_main
+[100%] Linking CXX static library libgtest_main.a
+[100%] Built target gtest_main
+[ 43%] Performing install step for 'GTest-Release'
+[ 27%] Built target gmock
+[ 63%] Built target gmock_main
+[ 81%] Built target gtest
+[100%] Built target gtest_main
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/libgmock.a
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/libgmock_main.a
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-matchers.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-more-actions.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-generated-actions.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-generated-matchers.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-generated-nice-strict.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/gmock-port.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/gmock-internal-utils.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/gmock-generated-internal-utils.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/custom
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/custom/gmock-port.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/custom/gmock-matchers.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/custom/gmock-generated-actions.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-more-matchers.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-generated-function-mockers.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-cardinalities.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-spec-builders.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-actions.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GMock/GMockConfig.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GMock/GMockConfigVersion.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GMock/GMockTargets.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GMock/GMockTargets-release.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/libgtest.a
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/libgtest_main.a
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-death-test.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-spi.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-linked_ptr.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-string.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-death-test-internal.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-port.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-port-arch.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-internal.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-param-util-generated.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-param-util.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-type-util.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-filepath.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/custom
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/custom/gtest-port.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/custom/gtest.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/custom/gtest-printers.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-tuple.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-message.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-param-test.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-typed-test.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest_pred_impl.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest_prod.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-test-part.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-printers.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GTest/GTestConfig.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GTest/GTestConfigVersion.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GTest/GTestTargets.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GTest/GTestTargets-release.cmake
+loading initial cache file /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/args.cmake
+[ 50%] Completed 'GTest-Release'
+[ 50%] Built target GTest-Release
+Scanning dependencies of target GTest-Debug
+[ 56%] Creating directories for 'GTest-Debug'
+[ 62%] Performing download step (download, verify and extract) for 'GTest-Debug'
+-- verifying file...
+       file='/Users/pc/.hunter/_Base/Download/GTest/1.8.0-hunter-p11/76c6aec/1.8.0-hunter-p11.tar.gz'
+-- File already exists and hash match (skip download):
+  file='/Users/pc/.hunter/_Base/Download/GTest/1.8.0-hunter-p11/76c6aec/1.8.0-hunter-p11.tar.gz'
+  SHA1='76c6aec038f7d7258bf5c4f45c4817b34039d285'
+-- extracting...
+     src='/Users/pc/.hunter/_Base/Download/GTest/1.8.0-hunter-p11/76c6aec/1.8.0-hunter-p11.tar.gz'
+     dst='/Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Source'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[ 68%] No patch step for 'GTest-Debug'
+[ 75%] No update step for 'GTest-Debug'
+[ 81%] Performing configure step for 'GTest-Debug'
+loading initial cache file /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/cache.cmake
+loading initial cache file /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/args.cmake
+-- The C compiler identification is AppleClang 10.0.0.10001044
+-- The CXX compiler identification is AppleClang 10.0.0.10001044
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc -- works
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ -- works
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PythonInterp: /usr/bin/python (found version "2.7.16") 
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Build/GTest-Debug-prefix/src/GTest-Debug-build
+[ 87%] Performing build step for 'GTest-Debug'
+Scanning dependencies of target gtest
+[  9%] Building CXX object googlemock/gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+Scanning dependencies of target gmock
+Scanning dependencies of target gmock_main
+[ 18%] Building CXX object googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o
+[ 27%] Building CXX object googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[ 36%] Building CXX object googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o
+[ 45%] Building CXX object googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
+[ 54%] Linking CXX static library libgtestd.a
+[ 63%] Linking CXX static library libgmockd.a
+[ 72%] Building CXX object googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[ 72%] Built target gtest
+Scanning dependencies of target gtest_main
+[ 81%] Building CXX object googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[ 81%] Built target gmock
+[ 90%] Linking CXX static library libgtest_maind.a
+[ 90%] Built target gtest_main
+[100%] Linking CXX static library libgmock_maind.a
+[100%] Built target gmock_main
+[ 93%] Performing install step for 'GTest-Debug'
+[ 27%] Built target gmock
+[ 63%] Built target gmock_main
+[ 81%] Built target gtest
+[100%] Built target gtest_main
+Install the project...
+-- Install configuration: "Debug"
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/libgmockd.a
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/libgmock_maind.a
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-matchers.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-more-actions.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-generated-actions.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-generated-matchers.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-generated-nice-strict.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/gmock-port.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/gmock-internal-utils.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/gmock-generated-internal-utils.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/custom
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/custom/gmock-port.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/custom/gmock-matchers.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/internal/custom/gmock-generated-actions.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-more-matchers.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-generated-function-mockers.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-cardinalities.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-spec-builders.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gmock/gmock-actions.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GMock/GMockConfig.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GMock/GMockConfigVersion.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GMock/GMockTargets.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GMock/GMockTargets-debug.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/libgtestd.a
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/libgtest_maind.a
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-death-test.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-spi.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-linked_ptr.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-string.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-death-test-internal.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-port.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-port-arch.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-internal.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-param-util-generated.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-param-util.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-type-util.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-filepath.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/custom
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/custom/gtest-port.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/custom/gtest.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/custom/gtest-printers.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/internal/gtest-tuple.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-message.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-param-test.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-typed-test.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest_pred_impl.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest_prod.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-test-part.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest.h
+-- Up-to-date: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/include/gtest/gtest-printers.h
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GTest/GTestConfig.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GTest/GTestConfigVersion.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GTest/GTestTargets.cmake
+-- Installing: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/Install/lib/cmake/GTest/GTestTargets-debug.cmake
+loading initial cache file /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest/args.cmake
+[100%] Completed 'GTest-Debug'
+[100%] Built target GTest-Debug
+-- [hunter] Build step successful (dir: /Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Build/GTest)
+-- [hunter] Cache saved: /Users/pc/.hunter/_Base/Cache/raw/8e2c3bc74ce691ce4d8bf0f145df3cff3cd3d888.tar.bz2
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/cmake-build-debug

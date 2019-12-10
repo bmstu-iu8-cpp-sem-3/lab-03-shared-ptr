@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/SharedPtr.hpp
+atomic
+-
+iostream
+-
+
+/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/sources/source.cpp
+SharedPtr.hpp
+/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/sources/SharedPtr.hpp
+
