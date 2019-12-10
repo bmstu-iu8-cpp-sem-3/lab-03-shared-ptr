@@ -1,64 +1,330 @@
 #include <gtest/gtest.h>
+
 #include "SharedPtr.hpp"
 
-namespace {
-    struct C {
-        int* data;
-    };
-//
-    TEST(shared_ptr, basic_ptr) {
-        int number = 100;
-        // Create a shared_ptr
-        SharedPtr<int> p1;
-        SharedPtr<int> p2;
-        *p2 = number;
-        const SharedPtr<int> &p3(p2);
-        SharedPtr<C> obj;
-        EXPECT_EQ(1, p1.use_count());
-        EXPECT_EQ(2, p2.use_count());
-        EXPECT_EQ(2, p3.use_count());
-        EXPECT_EQ(1, obj.use_count());
-    }
-    
-    TEST(shared_ptr, no_throw) {
-        int number = 1000;
-        // Create a shared_ptr
-        SharedPtr<int> p1;
-        SharedPtr<int> p2;
-        *p2 = number;
-        SharedPtr<int> p3(p2);
-        SharedPtr<C> obj;
-        ASSERT_NO_THROW(p1.reset());
-        ASSERT_NO_THROW(p2.reset());
-        ASSERT_NO_THROW(p3.reset());
-        ASSERT_NO_THROW(obj.reset());
-    }
-    
-    TEST(shared_ptr, check_operator) {
-        int number = 100;
-        // Create a shared_ptr
-        SharedPtr<int> p1;
-        SharedPtr<int> p2;
-        *p2 = number;
-        SharedPtr<int> p3(p2);
-        EXPECT_EQ(1, p1.use_count());
-        EXPECT_EQ(3, p2.use_count());
-        EXPECT_EQ(3, p3.use_count());
-        p1 = p2;
-        p2 = p3;
-        EXPECT_EQ(4, p1.use_count());
-        EXPECT_EQ(4, p2.use_count());
-        EXPECT_EQ(4, p3.use_count());
-    }
+TEST(shared_ptr, NullCostructor)
+{
+    SharedPtr<int> ptr;
 
-    TEST(shared_ptr, check_constructor) {
-        int number = 100;
-        // Create a shared_ptr
-        SharedPtr<int> p2;
-        *p2 = number;
-        SharedPtr<int> p1 = std::move(p2);
-        EXPECT_EQ(1, p1.use_count());
-        SharedPtr<int> p3(std::move(p1));
-        EXPECT_EQ(1, p3.use_count());
-    }
+    EXPECT_EQ(ptr.get(),nullptr);
+    EXPECT_EQ(bool(ptr),false);
+    EXPECT_EQ(ptr.use_count(),0);
+}
+
+TEST(shared_ptr, ItemInsideCostructor)
+{
+    SharedPtr ptr(new int{5});
+
+    EXPECT_EQ(*(ptr.get()),5);
+    EXPECT_EQ(bool(ptr),true);
+    EXPECT_EQ(ptr.use_count(),1);
+}
+
+TEST(shared_ptr, PtrInsideCostructor1)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2(ptr);
+
+    EXPECT_EQ(*(ptr.get()),*(ptr2.get()));
+    EXPECT_EQ(*(ptr.get()),5);
+
+    EXPECT_EQ(bool(ptr),bool(ptr2));
+    EXPECT_EQ(bool(ptr),true);
+
+    EXPECT_EQ(ptr.use_count(),ptr2.use_count());
+    EXPECT_EQ(ptr.use_count(),2);
+}
+
+TEST(shared_ptr, PtrInsideCostructor2)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2(std::move(ptr));
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+}
+
+TEST(shared_ptr, DeleteTest)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2 = ptr;
+
+    EXPECT_EQ(*(ptr.get()),*(ptr2.get()));
+    EXPECT_EQ(*(ptr.get()),5);
+
+    EXPECT_EQ(bool(ptr),bool(ptr2));
+    EXPECT_EQ(bool(ptr),true);
+
+    EXPECT_EQ(ptr.use_count(),ptr2.use_count());
+    EXPECT_EQ(ptr.use_count(),2);
+
+    ptr.~SharedPtr();
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+}
+
+TEST(shared_ptr, OperatorPrisvaivania1)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2 = ptr;
+
+    EXPECT_EQ(*(ptr.get()),*(ptr2.get()));
+    EXPECT_EQ(*(ptr.get()),5);
+
+    EXPECT_EQ(bool(ptr),bool(ptr2));
+    EXPECT_EQ(bool(ptr),true);
+
+    EXPECT_EQ(ptr.use_count(),ptr2.use_count());
+    EXPECT_EQ(ptr.use_count(),2);
+}
+
+TEST(shared_ptr, OperatorPrisvaivania2)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2 = std::move(ptr);
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+}
+
+TEST(shared_ptr, IntInsideCostructor)
+{
+    SharedPtr ptr(new int{5});
+
+    EXPECT_EQ(*(ptr.get()),5);
+    EXPECT_EQ(bool(ptr),true);
+    EXPECT_EQ(ptr.use_count(),1);
+
+    SharedPtr ptr2(ptr);
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr.use_count(),ptr2.use_count());
+    EXPECT_EQ(ptr.use_count(),2);
+
+    ptr.~SharedPtr();
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+}
+
+TEST(shared_ptr, OperatorBool)
+{
+    SharedPtr<int> ptr{};
+
+    EXPECT_EQ(bool(ptr),false);
+
+    SharedPtr ptr2(new int{5});
+
+    EXPECT_EQ(bool(ptr2),true);
+}
+
+TEST(shared_ptr, RESET)
+{
+    SharedPtr ptr{new int{5}};
+
+    ptr.reset();
+    EXPECT_EQ(bool(ptr),false);
+
+    ptr.reset(new int{5});
+    EXPECT_EQ(*(ptr.get()),5);
+    EXPECT_EQ(bool(ptr),true);
+    EXPECT_EQ(ptr.use_count(),1);
+}
+
+TEST(shared_ptr, SWAP)
+{
+    SharedPtr ptr{new int{5}};
+    SharedPtr ptr2{new int{105}};
+
+    ptr.swap(ptr2);
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+
+    EXPECT_EQ(*(ptr.get()),105);
+    EXPECT_EQ(bool(ptr),true);
+    EXPECT_EQ(ptr.use_count(),1);
+}
+
+TEST(shared_ptr, Count)
+{
+    int a = rand();
+    SharedPtr ptr{new int {a}};
+    EXPECT_EQ(ptr.use_count(),1);
+}
+
+
+TEST(shared_ptr, NullCostructor)
+{
+    SharedPtr<int> ptr;
+
+    EXPECT_EQ(ptr.get(),nullptr);
+    EXPECT_EQ(bool(ptr),false);
+    EXPECT_EQ(ptr.use_count(),0);
+}
+
+TEST(shared_ptr, ItemInsideCostructor)
+{
+    SharedPtr ptr(new int{5});
+
+    EXPECT_EQ(*(ptr.get()),5);
+    EXPECT_EQ(bool(ptr),true);
+    EXPECT_EQ(ptr.use_count(),1);
+}
+
+TEST(shared_ptr, PtrInsideCostructor1)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2(ptr);
+
+    EXPECT_EQ(*(ptr.get()),*(ptr2.get()));
+    EXPECT_EQ(*(ptr.get()),5);
+
+    EXPECT_EQ(bool(ptr),bool(ptr2));
+    EXPECT_EQ(bool(ptr),true);
+
+    EXPECT_EQ(ptr.use_count(),ptr2.use_count());
+    EXPECT_EQ(ptr.use_count(),2);
+}
+
+TEST(shared_ptr, PtrInsideCostructor2)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2(std::move(ptr));
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+}
+
+TEST(shared_ptr, DeleteTest)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2 = ptr;
+
+    EXPECT_EQ(*(ptr.get()),*(ptr2.get()));
+    EXPECT_EQ(*(ptr.get()),5);
+
+    EXPECT_EQ(bool(ptr),bool(ptr2));
+    EXPECT_EQ(bool(ptr),true);
+
+    EXPECT_EQ(ptr.use_count(),ptr2.use_count());
+    EXPECT_EQ(ptr.use_count(),2);
+
+    ptr.~SharedPtr();
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+}
+
+TEST(shared_ptr, OperatorPrisvaivania1)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2 = ptr;
+
+    EXPECT_EQ(*(ptr.get()),*(ptr2.get()));
+    EXPECT_EQ(*(ptr.get()),5);
+
+    EXPECT_EQ(bool(ptr),bool(ptr2));
+    EXPECT_EQ(bool(ptr),true);
+
+    EXPECT_EQ(ptr.use_count(),ptr2.use_count());
+    EXPECT_EQ(ptr.use_count(),2);
+}
+
+TEST(shared_ptr, OperatorPrisvaivania2)
+{
+    SharedPtr ptr(new int{5});
+
+    SharedPtr ptr2 = std::move(ptr);
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+}
+
+TEST(shared_ptr, IntInsideCostructor)
+{
+    SharedPtr ptr(new int{5});
+
+    EXPECT_EQ(*(ptr.get()),5);
+    EXPECT_EQ(bool(ptr),true);
+    EXPECT_EQ(ptr.use_count(),1);
+
+    SharedPtr ptr2(ptr);
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr.use_count(),ptr2.use_count());
+    EXPECT_EQ(ptr.use_count(),2);
+
+    ptr.~SharedPtr();
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+}
+
+TEST(shared_ptr, OperatorBool)
+{
+    SharedPtr<int> ptr{};
+
+    EXPECT_EQ(bool(ptr),false);
+
+    SharedPtr ptr2(new int{5});
+
+    EXPECT_EQ(bool(ptr2),true);
+}
+
+TEST(shared_ptr, RESET)
+{
+    SharedPtr ptr{new int{5}};
+
+    ptr.reset();
+    EXPECT_EQ(bool(ptr),false);
+
+    ptr.reset(new int{5});
+    EXPECT_EQ(*(ptr.get()),5);
+    EXPECT_EQ(bool(ptr),true);
+    EXPECT_EQ(ptr.use_count(),1);
+}
+
+TEST(shared_ptr, SWAP)
+{
+    SharedPtr ptr{new int{5}};
+    SharedPtr ptr2{new int{105}};
+
+    ptr.swap(ptr2);
+
+    EXPECT_EQ(*(ptr2.get()),5);
+    EXPECT_EQ(bool(ptr2),true);
+    EXPECT_EQ(ptr2.use_count(),1);
+
+    EXPECT_EQ(*(ptr.get()),105);
+    EXPECT_EQ(bool(ptr),true);
+    EXPECT_EQ(ptr.use_count(),1);
+}
+
+TEST(shared_ptr, Count)
+{
+    int a = rand();
+    SharedPtr ptr{new int {a}};
+    EXPECT_EQ(ptr.use_count(),1);
 }

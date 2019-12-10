@@ -49,16 +49,12 @@ public:
         reset();
     }
 
-    SharedPtr(const SharedPtr& ptr) : _data(ptr._data), count(ptr.count) {
-        if (count != nullptr)
-            count->Increase();
+    SharedPtr(const SharedPtr& ptr) {
+        *this = ptr;
     }
 
     SharedPtr(SharedPtr&& ptr) noexcept {
-        _data = ptr._data;
-        count = ptr.count;
-        ptr.count = nullptr;
-        ptr._data = nullptr;
+        *this = std::move(ptr);
     }
 
     SharedPtr& operator=(const SharedPtr& ptr) {
