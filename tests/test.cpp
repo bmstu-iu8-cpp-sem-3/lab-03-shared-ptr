@@ -29,9 +29,9 @@ TEST(SharedPtr, FromPointer) {
     EXPECT_EQ(shared_ptr_int_Copy.get(), nullptr);
 
     // Указывает ли указатель на объект
-    EXPECT_EQ(static_cast<bool> ( shared_ptr_int),true);
-    EXPECT_EQ(static_cast<bool> ( shared_ptr_string), true);
-    EXPECT_EQ(static_cast<bool> ( shared_ptr_null), false);
+    EXPECT_EQ(static_cast<bool>(shared_ptr_int), true);
+    EXPECT_EQ(static_cast<bool>(shared_ptr_string), true);
+    EXPECT_EQ(static_cast<bool>(shared_ptr_null), false);
 
     // Значение счётчика ссылок
     EXPECT_EQ(shared_ptr_int.use_count(), 2);

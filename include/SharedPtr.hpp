@@ -97,16 +97,16 @@ public:
 
     void reset(){
         *this = SharedPtr();
-    };
+    }
 
     void reset(T* ptr){
         *this = SharedPtr(ptr);
-    };
+    }
 
     void swap(SharedPtr& r){
         std::swap(_data, r._data);
         std::swap(cnt, r.cnt);
-    };
+    }
 
     [[nodiscard]] auto use_count() const->size_t {
         if (cnt != nullptr)
