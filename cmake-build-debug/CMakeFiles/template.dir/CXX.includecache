@@ -7,12 +7,18 @@
 #IncludeRegexTransform: 
 
 ../include/SharedPtr.hpp
-atomic
--
 iostream
 -
+atomic
+-
+algorithm
+-
+cstddef
+-
+string
+-
 
-/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/sources/source.cpp
+D:/lab-03-shared-ptr/sources/source.cpp
 SharedPtr.hpp
-/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/sources/SharedPtr.hpp
+D:/lab-03-shared-ptr/sources/SharedPtr.hpp
 

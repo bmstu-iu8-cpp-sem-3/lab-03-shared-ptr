@@ -1,8 +1,8 @@
-# Install script for directory: /Users/pc/Desktop/CLionProjects/lab-03-shared-ptr
+# Install script for directory: D:/lab-03-shared-ptr
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/template")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/lab-03-shared-ptr/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

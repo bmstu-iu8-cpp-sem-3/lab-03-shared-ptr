@@ -4,19 +4,19 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/tests/test.cpp" "/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/tests.dir/tests/test.cpp.o"
+  "D:/lab-03-shared-ptr/tests/test.cpp" "D:/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/tests.dir/tests/test.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
-  "/Users/pc/.hunter/_Base/9a3594a/b59e805/c351cc1/Install/include"
+  "C:/.hunter/_Base/9a3594a/76db43b/2c875e7/Install/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/template.dir/DependInfo.cmake"
+  "D:/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/template.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

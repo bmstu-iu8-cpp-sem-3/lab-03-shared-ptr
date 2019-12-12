@@ -69,7 +69,7 @@ hunter_final_config(
 )
 hunter_final_config(
     PACKAGE "Boost"
-    VERSION "1.70.0-p0"
+    VERSION "1.64.0"
 )
 hunter_final_config(
     PACKAGE "BoostCompute"
@@ -337,7 +337,7 @@ hunter_final_config(
 )
 hunter_final_config(
     PACKAGE "Qt"
-    VERSION "5.11.3"
+    VERSION "5.5.1-cvpixelbuffer-2-p9"
 )
 hunter_final_config(
     PACKAGE "QtAndroidCMake"

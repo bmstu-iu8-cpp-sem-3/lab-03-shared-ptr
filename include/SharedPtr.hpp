@@ -1,122 +1,114 @@
 #pragma once
 
-#include <atomic>
 #include <iostream>
-
-
-class Counter {
-
-    std::atomic_uint cnt;
-public:
-
-    Counter() : cnt(1)
-    {}
-
-    ~Counter() = default;
-
-    explicit Counter(const std::atomic_uint& num) {
-        cnt.store(num);
-    }
-
-    Counter& Increase() {
-        ++cnt;
-        return *this;
-    }
-
-    Counter& Decrease() {
-        --cnt;
-        return *this;
-    }
-
-    std::atomic_uint& Get() {
-        return cnt;
-    }
-};
-
+#include <atomic>
+#include <algorithm>
+#include <cstddef>
+#include <string>
+using namespace std;
 
 template <typename T>
-class SharedPtr {
+class SharedPtr{
+private:
     T* _data;
-    Counter* count;
+    atomic_uint *cnt;
 public:
-
-    SharedPtr() {
-        _data = new T;
-        count = new Counter();
-    }
-
-    ~SharedPtr() {
-        reset();
-    }
-
-    SharedPtr(const SharedPtr& ptr) {
-        *this = ptr;
-    }
-
-    SharedPtr(SharedPtr&& ptr) noexcept {
-        *this = std::move(ptr);
-    }
-
-    SharedPtr& operator=(const SharedPtr& ptr) {
-        if (this != &ptr) {
-            reset();
-            _data = ptr._data;
-            count = ptr.count;
-            count->Increase();
-        }
-        return *this;
-    }
-
-    SharedPtr<T> &operator=(SharedPtr&& ptr) noexcept {
-        _data = ptr._data;
-        count = ptr.count;
-        ptr.count = nullptr;
-        ptr._data = nullptr;
-        return *this;
-    }
-
- 
-    void reset()
+    SharedPtr()
     {
-        *this = SharedPtr{};
-    }
+        _data = nullptr;
+        cnt= nullptr;
+    };
 
-    void reset(T *ptr)
+    explicit SharedPtr(T* ptr)
     {
-        *this = SharedPtr{ptr};
-    }
+        _data = ptr;
+        cnt = new atomic_uint(1);
+    };
 
-    void swap(SharedPtr& ptr) {
-        if (_data != ptr._data) {
-            std::swap(_data, ptr._data);
-            std::swap(count, ptr.count);
+    SharedPtr(const SharedPtr& r)
+    {
+        cnt= nullptr;
+        *this=r;
+    };
+
+    SharedPtr(SharedPtr&& r) noexcept
+    {
+        cnt= nullptr;
+        *this=std::move(r);
+    };
+
+    ~SharedPtr()
+    {
+        if (cnt == nullptr)
+            return;
+        (cnt)--;
+        if (cnt == 0) {
+            delete _data;
+            delete cnt;
         }
-    }
+    };
 
-    T* get() {
-        if (_data == nullptr) {
-            throw std::invalid_argument("null pointer");
-        }
-        return _data;
-    }
+    auto operator=(const SharedPtr& r)->SharedPtr&{
+        if(this==&r)
+            return *this;
 
-    T& operator*() const {
-        if (_data == nullptr)
-            throw std::invalid_argument("Error");
+        this->~SharedPtr();
+
+        _data=r._data;
+        cnt=r.cnt;
+        (*cnt)++;
+
+        return *this;
+    };
+
+    auto operator=(SharedPtr&& r) noexcept ->SharedPtr&  {
+        if(this==&r)
+            return *this;
+
+        this->~SharedPtr();
+
+        _data=r._data;
+        cnt=r.cnt;
+        r.cnt= nullptr;
+        r._data= nullptr;
+
+        return *this;
+    };
+
+    explicit operator bool() const
+    {
+        return _data != nullptr;
+    };
+
+    auto operator*() const->T&{
         return *_data;
-    }
+    };
 
-    T* operator->() const {
-        if (_data == nullptr)
-            throw std::invalid_argument("Error");
+    auto operator->() const->T*{
         return _data;
-    }
+    };
 
-    size_t use_count() const {
-        return static_cast<size_t>(count->Get());
-    }
+    auto get()->T*{
+        return _data;
+    };
 
-    explicit operator bool() const {
-        return _data == nullptr;
-    }
+    void reset(){
+        *this=SharedPtr();
+    };
+
+    void reset(T* ptr){
+        *this=SharedPtr(ptr);
+    };
+
+    void swap(SharedPtr& r){
+        std::swap(_data, r._data);
+        std::swap(cnt, r.cnt);
+    };
+
+    [[nodiscard]] auto use_count() const->size_t {
+        if(cnt != nullptr)
+            return *cnt;
+        else
+            return 0;
+    };
 };

@@ -1,5 +1,5 @@
-/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/test.dir
-/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/tests.dir
-/Users/pc/Desktop/CLionProjects/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/template.dir
+D:/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/template.dir
+D:/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/tests.dir
+D:/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/test.dir
+D:/lab-03-shared-ptr/cmake-build-debug/CMakeFiles/edit_cache.dir
