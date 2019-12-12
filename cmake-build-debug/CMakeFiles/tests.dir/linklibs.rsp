@@ -1,1 +1,0 @@
-C:/.hunter/_Base/9a3594a/76db43b/2c875e7/Install/lib/libgtest_maind.a libtemplated.a C:/.hunter/_Base/9a3594a/76db43b/2c875e7/Install/lib/libgtestd.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
