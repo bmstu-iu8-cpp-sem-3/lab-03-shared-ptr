@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/ARAOvsepyan/lab-03-shared-ptr.svg?branch=master)](https://travis-ci.com/ARAOvsepyan/lab-03-shared-ptr)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com)
 
 # Лабораторная работа №3
 
