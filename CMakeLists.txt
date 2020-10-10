@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_COVERAGE "Build coverage" OFF)
@@ -40,7 +40,7 @@ target_include_directories(shared_pointer
 target_include_directories(tests
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
-target_link_libraries(tests GTest::gtest shared_pointer)
+target_link_libraries(tests GTest::gmock_main shared_pointer)
 
 enable_testing()
 add_test(NAME unit_tests COMMAND tests)
