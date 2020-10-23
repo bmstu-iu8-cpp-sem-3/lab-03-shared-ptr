@@ -28,22 +28,23 @@ hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
 
 # TODO: change template word to project name and delete this comment
-add_library(template STATIC
+add_library(template INTERFACE)
+
+# TODO: change template word to project name and delete this comment
+add_executable(demo
   # enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
 )
+
 add_executable(tests
   # TODO: enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
 )
 
-# TODO: change template word to project name and delete this comment
 target_include_directories(template
-  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
+  INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
-target_include_directories(tests
-  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
+
 # TODO: change template word to project name and delete this comment
 target_link_libraries(tests GTest::gtest_main template)
 
@@ -51,18 +52,10 @@ enable_testing()
 add_test(NAME unit_tests COMMAND tests)
 
 if(BUILD_COVERAGE)
-  function(ENABLE_PROJECT_COVERAGE PROJECT)
-    target_compile_options(${PROJECT} PRIVATE --coverage)
-    target_link_libraries(${PROJECT} --coverage)
-    add_coverage(${PROJECT})
-  endfunction()
-
   set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
   find_package(codecov)
-  # TODO: change template word to project name and delete this comment
-  enable_project_coverage(template)
-  enable_project_coverage(tests)
+  add_coverage(tests)
   list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")
   coverage_evaluate()
 endif()
