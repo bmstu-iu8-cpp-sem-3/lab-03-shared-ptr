@@ -21,8 +21,8 @@ class SharedPtr {
   }
 
   //конструктор из обычной ссылки
-  SharedPtr(T* ptr) {
-    this->ptr = ptr;
+  SharedPtr(T* pointer) {
+    ptr = pointer;
     *counter = 1;
   }
 

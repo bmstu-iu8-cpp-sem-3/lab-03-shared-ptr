@@ -1,3 +1,6 @@
 // Copyright 2020 Siver Elisey <sivereliseu7@gmail.com>
 
-#include <header.hpp>
+
+int main(){
+  return 0;
+}
