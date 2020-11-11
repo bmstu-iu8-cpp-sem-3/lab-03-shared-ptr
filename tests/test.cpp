@@ -1,4 +1,4 @@
-// Copyright 2020 Your Name <your_email>
+// Copyright 2020 Siver Elisey <sivereliseu7@gmail.com>
 
 #include <gtest/gtest.h>
 
