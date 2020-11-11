@@ -15,22 +15,23 @@ class SharedPtr {
 
  public:
   //конструктор без параметров
-  SharedPtr() {
-    ptr = nullptr;
-    counter = nullptr;
+  SharedPtr() : ptr(nullptr), counter(nullptr) {
+    /*  ptr = nullptr;
+      counter = nullptr;*/
   }
 
   //конструктор из обычной ссылки
   SharedPtr(T* pointer) {
     ptr = pointer;
-    *counter = 1;
+    counter = new std::atomic_uint;
+    (*counter) = 1;
   }
 
   //конструктор копирования
   SharedPtr(const SharedPtr& r) {
     ptr = r.ptr;
     counter = r.counter;
-    if (*counter != 0) *counter++;
+    (*counter)++;
   }
 
   //конструктор перемещения
@@ -43,37 +44,43 @@ class SharedPtr {
 
   //деструктор
   ~SharedPtr() {
-    *counter--;
-    if (*counter == 0) {
-      delete ptr;
-      delete counter;
-    }
-  }
+    if (ptr != nullptr) {
+      (*counter)--;
 
-  auto operator=(const SharedPtr& r) -> SharedPtr& {
-    if (*this != *r) {
-      *counter--;
       if (*counter == 0) {
         delete ptr;
         delete counter;
       }
+    }
+  }
+
+  auto operator=(const SharedPtr& r) -> SharedPtr& {
+    if (this != &r) {
+      if (ptr != nullptr) {
+        (*counter)--;
+        if (*counter == 0) {
+          delete ptr;
+          delete counter;
+        }
+      }
       ptr = r.ptr;
       counter = r.counter;
-      if (*counter != 0) *counter++;
+      (*counter)++;
     }
     return *this;
   }
 
   auto operator=(SharedPtr&& r) -> SharedPtr& {
-    if (*this != *r) {
-      *counter--;
-      if (*counter == 0) {
-        delete ptr;
-        delete counter;
+    if (this != &r) {
+      if (ptr != nullptr) {
+        (*counter)--;
+        if (*counter == 0) {
+          delete ptr;
+          delete counter;
+        }
       }
       ptr = r.ptr;
       counter = r.counter;
-      if (*counter != 0) *counter++;
 
       r.counter = nullptr;
       r.ptr = nullptr;
@@ -94,7 +101,7 @@ class SharedPtr {
   auto get() -> T* { return ptr; }
 
   void reset() {
-    if (*counter != 0) *counter--;
+    if (*counter != 0) (*counter)--;
     if (*counter == 0) {
       delete ptr;
       delete counter;
@@ -104,7 +111,7 @@ class SharedPtr {
   }
 
   void reset(T* pointer) {
-    if (*counter != 0) *counter--;
+    if (*counter != 0) (*counter)--;
     if (*counter == 0) {
       delete ptr;
       delete counter;

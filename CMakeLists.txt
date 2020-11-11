@@ -35,11 +35,11 @@ add_executable(demo
 
 add_executable(tests
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
+        tests/test_runner.cpp
         )
 
 target_include_directories(lab-03-shared-ptr
-        INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/header.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/SharedPtr.h
+        INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 
 target_link_libraries(tests GTest::gtest_main lab-03-shared-ptr)
